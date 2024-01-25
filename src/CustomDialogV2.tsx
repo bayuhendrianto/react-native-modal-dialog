@@ -1,13 +1,8 @@
 import React, { FC } from "react";
-import {
-  Modal,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { Modal, View, Text, TouchableOpacity } from "react-native";
 import { CustomDialogInputProps } from "./types";
 
-export const CustomDialogInput: FC<CustomDialogInputProps> = ({
+export const CustomDialogV2: FC<CustomDialogInputProps> = ({
   isTitle,
   isMessage,
   visible,
@@ -28,6 +23,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
   buttonTextCancelColor = "#FFFFFF",
   buttonConfirmColor = "#40A2D8",
   buttonTextConfirmColor = "#FFFFFF",
+  borderColor = "gray",
   children,
 }) => {
   return (
@@ -50,13 +46,16 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
       >
         <View
           style={{
-            backgroundColor: backgroundColor ? backgroundColor : "#FFFFFF",
+            backgroundColor: backgroundColor,
             height: "auto",
             width: "90%",
-            borderRadius: 10,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            borderTopRightRadius: 10,
+            borderTopLeftRadius: 10,
+            borderBottomColor: borderColor,
+            borderBottomWidth: 3,
           }}
         >
           <View style={{ width: "100%" }}>
@@ -91,7 +90,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
             {children}
           </View>
         </View>
-        <View style={{ marginTop: 5, width: "90%" }}>
+        <View style={{ width: "90%" }}>
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
@@ -101,11 +100,13 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
                 onVisible(false);
               }}
               style={{
-                width: "49%",
-                height: 60,
-                padding: 10,
-                backgroundColor: buttonCancelColor ? buttonCancelColor : "red",
-                borderRadius: 10,
+                width: "50%",
+                height: 50,
+                padding: 6,
+                backgroundColor: buttonCancelColor,
+                borderBottomLeftRadius: 10,
+                borderRightColor: borderColor,
+                borderRightWidth: 1.5,
               }}
             >
               <Text
@@ -113,12 +114,10 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
                   textAlign: "center",
                   fontSize: 26,
                   fontWeight: "700",
-                  color: buttonTextCancelColor
-                    ? buttonTextCancelColor
-                    : "#FFFFFF",
+                  color: buttonTextCancelColor,
                 }}
               >
-                {actionCancelText ? actionCancelText : "cancel"}
+                {actionCancelText}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -128,13 +127,13 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
                 onConfirm();
               }}
               style={{
-                width: "49%",
-                height: 60,
-                padding: 10,
-                backgroundColor: buttonConfirmColor
-                  ? buttonConfirmColor
-                  : "#40A2D8",
-                borderRadius: 10,
+                width: "50%",
+                height: 50,
+                padding: 6,
+                backgroundColor: buttonConfirmColor,
+                borderBottomRightRadius: 10,
+                borderLeftColor: borderColor,
+                borderLeftWidth: 1.5,
               }}
             >
               <Text
@@ -142,12 +141,10 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
                   textAlign: "center",
                   fontSize: 26,
                   fontWeight: "700",
-                  color: buttonTextConfirmColor
-                    ? buttonTextConfirmColor
-                    : "#FFFFFF",
+                  color: buttonTextConfirmColor,
                 }}
               >
-                {actionConfirmText ? actionConfirmText : "ok"}
+                {actionConfirmText}
               </Text>
             </TouchableOpacity>
           </View>

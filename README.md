@@ -1,10 +1,12 @@
-# React Native Custom Modal Component
-## React Native Swipe Button Component <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" /> 
-<a href="https://nodei.co/npm/rn-custom-modal-components/"><img src="https://nodei.co/npm/rn-custom-modal-components.png?downloads=true&downloadRank=true&stars=true"></a>
+# React Native Modal Dialog
+
+## React Native Modal Dialog <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
+
+<a href="https://nodei.co/npm/@bayudev/react-native-modal-dialog/"><img src="https://nodei.co/npm/@bayudev/react-native-modal-dialog.png?downloads=true&downloadRank=true&stars=true"></a>
 
 <hr>
 
-## Installation 
+## Installation
 
 ```bash
 npm i @bayudev/react-native-modal-dialog --save
@@ -14,10 +16,11 @@ yarn add @bayudev/react-native-modal-dialog
 ```
 
 ## Usage
+
 ```js
 import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
 
-<ReactNativeAlert />
+<ReactNativeAlert />;
 ```
 
 <hr>
@@ -32,9 +35,12 @@ import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
 	<tr>
      	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/home.jpg" width="200" style="margin-right: 30px;"/></td>
      	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/modal.jpg" style="margin-right: 30px;" width="200"/></td>
+	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/openmodaldialog.jpg" width="200" style="margin-right: 30px;"/></td>
+     	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/modaldialog.jpg" style="margin-right: 30px;" width="200"/></td>
+	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/openmodaldialoginput.jpg" width="200" style="margin-right: 30px;"/></td>
+     	  <td><img src="https://github.com/bayuhendrianto/react-native-modal-dialog/blob/main/screenshot/modaldialoginput.jpg" style="margin-right: 30px;" width="200"/></td>
 	</tr>
   </table>
-  <p>These screenshots are from demo app under examples folder in the repo</p>
 </div>
 <hr>
 
@@ -104,14 +110,14 @@ import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
     children: ReactNode;
 </pre>
 <hr>
-<h2 style="color:darkgreen;">Code for above screenshots</h2>
+<h2 style="color:darkgreen;">Code for Alert Modal</h2>
 
 ```js
 import { StatusBar } from "expo-status-bar";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 
-import { ReactNativeAlert } from "react-native-modal-dialog";
+import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
 
 export default function App() {
   const [visible, setVisible] = useState(false);
@@ -166,6 +172,178 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
 ```
+
+<hr/>
+
+<h2 style="color:darkgreen;">Code for Dialog Modal</h2>
+
+```js
+import { StatusBar } from "expo-status-bar";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+
+// Import here
+import { ReactNativeDialog } from "@bayudev/react-native-modal-dialog";
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+
+  const onConfirm = () => {
+    setVisible(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <ReactNativeDialog
+        visible={visible}
+        onVisible={setVisible}
+        message={
+          <>
+            <Text>React Native Dialog !</Text>
+          </>
+        }
+        onConfirm={onConfirm}
+      />
+
+      <Pressable
+        onPress={() => setVisible(true)}
+        style={{
+          width: "80%",
+          height: 50,
+          padding: 8,
+          borderRadius: 10,
+          backgroundColor: "blue",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 22,
+          }}
+        >
+          Open Dialog
+        </Text>
+      </Pressable>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+```
+
+<hr/>
+
+<h2 style="color:darkgreen;">Code for Dialog Modal</h2>
+
+```js
+import { StatusBar } from "expo-status-bar";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { useState } from "react";
+
+// Import here
+import { ReactNativeDialogInput } from "@bayudev/react-native-modal-dialog";
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+  const [comment, setComment] = useState("");
+
+  const onConfirm = () => {
+    setVisible(false);
+  };
+
+  /**
+   * Create Input for children
+   */
+  const CustomInput = () => {
+    return (
+      <View style={{ padding: 15 }}>
+        <Text style={{ margin: 12, marginBottom: -18, color: "#000000" }}>
+          Comment
+        </Text>
+        <TextInput
+          onChangeText={setComment}
+          placeholder="add your comment here"
+          inputMode="text"
+          value={comment}
+          multiline
+          textAlignVertical="top"
+          style={{
+            height: 100,
+            margin: 12,
+            borderBottomWidth: 3,
+            borderBottomColor: "#000000",
+            color: "#FFFFFF",
+            fontSize: 22,
+            fontWeight: "700",
+          }}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <ReactNativeDialogInput
+        children={<CustomInput />}
+        isTitle
+        title="React Native Dialog !"
+        titleFontSize={22}
+        titleColor="#000000"
+        titlePosition="center"
+        visible={visible}
+        onVisible={setVisible}
+        message={
+          <>
+            <Text>React Native Dialog !</Text>
+          </>
+        }
+        onConfirm={onConfirm}
+        backgroundColor="#FFF8E3"
+      />
+
+      <Pressable
+        onPress={() => setVisible(true)}
+        style={{
+          width: "80%",
+          height: 50,
+          padding: 8,
+          borderRadius: 10,
+          backgroundColor: "blue",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 22,
+          }}
+        >
+          Open Dialog Input
+        </Text>
+      </Pressable>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+```
+
 <hr/>

@@ -1,5 +1,5 @@
 import { Modal, Text, TouchableOpacity, View } from "react-native";
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import { CustomAlertProps } from "./types";
 
 export const CustomAlert: FC<CustomAlertProps> = ({
@@ -12,10 +12,10 @@ export const CustomAlert: FC<CustomAlertProps> = ({
   titlePosition,
   message,
   messageColor,
-  actionText,
-  backgroundColor,
-  buttonColor,
-  buttonTextColor,
+  actionText = "ok",
+  backgroundColor = "#FFFFFF",
+  buttonColor = "#279EFF",
+  buttonTextColor = "white",
 }) => {
   return (
     <Modal
@@ -38,7 +38,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
       >
         <View
           style={{
-            backgroundColor: backgroundColor ? backgroundColor : "#FFFFFF",
+            backgroundColor: backgroundColor,
             height: "auto",
             width: "90%",
             borderRadius: 10,
@@ -83,7 +83,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
             style={{
               height: 60,
               padding: 10,
-              backgroundColor: buttonColor ? buttonColor : "#279EFF",
+              backgroundColor: buttonColor,
               borderRadius: 10,
             }}
           >
@@ -92,10 +92,10 @@ export const CustomAlert: FC<CustomAlertProps> = ({
                 textAlign: "center",
                 fontSize: 26,
                 fontWeight: "700",
-                color: buttonTextColor ? buttonTextColor : "white",
+                color: buttonTextColor,
               }}
             >
-              {actionText ? actionText : "ok"}
+              {actionText}
             </Text>
           </TouchableOpacity>
         </View>

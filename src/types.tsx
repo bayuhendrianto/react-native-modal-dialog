@@ -35,6 +35,7 @@ export type CustomDialogProps = {
   buttonTextCancelColor?: string;
   buttonConfirmColor?: string;
   buttonTextConfirmColor?: string;
+  borderColor?: string,
 };
 
 export type CustomDialogInputProps = {
@@ -59,4 +60,5 @@ export type CustomDialogInputProps = {
   buttonConfirmColor?: string;
   buttonTextConfirmColor?: string;
   children: ReactNode;
+  borderColor?: string,
 };

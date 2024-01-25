@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import { Modal, View, Text, TouchableOpacity } from "react-native";
 import { CustomDialogProps } from "./types";
 
@@ -14,13 +14,13 @@ export const CustomDialog: FC<CustomDialogProps> = ({
   message,
   messageColor,
   messageFontSize,
-  actionCancelText,
-  actionConfirmText,
-  backgroundColor,
-  buttonCancelColor,
-  buttonTextCancelColor,
-  buttonConfirmColor,
-  buttonTextConfirmColor,
+  actionCancelText = "cancel",
+  actionConfirmText = "ok",
+  backgroundColor = "#FFF8E3",
+  buttonCancelColor = "red",
+  buttonTextCancelColor = "#FFFFFF",
+  buttonConfirmColor = "#40A2D8",
+  buttonTextConfirmColor = "#FFFFFF",
 }) => {
   return (
     <Modal
