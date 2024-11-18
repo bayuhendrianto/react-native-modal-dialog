@@ -102,7 +102,7 @@ export const CustomDialogV2: FC<CustomDialogInputProps> = ({
               }}
               style={{
                 width: "50%",
-                height: 50,
+                minHeight:20,
                 padding: 6,
                 backgroundColor: buttonCancelColor,
                 borderBottomLeftRadius: 10,
@@ -129,7 +129,7 @@ export const CustomDialogV2: FC<CustomDialogInputProps> = ({
               }}
               style={{
                 width: "50%",
-                height: 50,
+                minHeight:20,
                 padding: 6,
                 backgroundColor: buttonConfirmColor,
                 borderBottomRightRadius: 10,

@@ -82,7 +82,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
             activeOpacity={0.8}
             onPress={() => onConfirm()}
             style={{
-              height: 60,
+              minHeight:20,
               padding: 10,
               backgroundColor: buttonColor,
               borderRadius: 10,
