@@ -1,10 +1,5 @@
 import React, { FC } from "react";
-import {
-  Modal,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { Modal, View, Text, TouchableOpacity } from "react-native";
 import { CustomDialogInputProps } from "./types";
 
 export const CustomDialogInput: FC<CustomDialogInputProps> = ({
@@ -28,6 +23,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
   buttonTextCancelColor = "#FFFFFF",
   buttonConfirmColor = "#40A2D8",
   buttonTextConfirmColor = "#FFFFFF",
+  fontSize = 24,
   children,
 }) => {
   return (
@@ -111,7 +107,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextCancelColor
                     ? buttonTextCancelColor
@@ -140,7 +136,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextConfirmColor
                     ? buttonTextConfirmColor

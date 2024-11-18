@@ -24,6 +24,7 @@ export const CustomDialogV2: FC<CustomDialogInputProps> = ({
   buttonConfirmColor = "#40A2D8",
   buttonTextConfirmColor = "#FFFFFF",
   borderColor = "gray",
+  fontSize = 24,
   children,
 }) => {
   return (
@@ -112,7 +113,7 @@ export const CustomDialogV2: FC<CustomDialogInputProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextCancelColor,
                 }}
@@ -139,7 +140,7 @@ export const CustomDialogV2: FC<CustomDialogInputProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextConfirmColor,
                 }}

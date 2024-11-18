@@ -21,6 +21,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
   buttonTextCancelColor = "#FFFFFF",
   buttonConfirmColor = "#40A2D8",
   buttonTextConfirmColor = "#FFFFFF",
+  fontSize = 24
 }) => {
   return (
     <Modal
@@ -100,7 +101,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextCancelColor
                     ? buttonTextCancelColor
@@ -129,7 +130,7 @@ export const CustomDialog: FC<CustomDialogProps> = ({
               <Text
                 style={{
                   textAlign: "center",
-                  fontSize: 26,
+                  fontSize: fontSize,
                   fontWeight: "700",
                   color: buttonTextConfirmColor
                     ? buttonTextConfirmColor

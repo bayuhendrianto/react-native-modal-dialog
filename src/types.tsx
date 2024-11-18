@@ -11,6 +11,7 @@ export type CustomAlertProps = {
   message: string | ReactNode;
   messageColor?: string;
   actionText?: string;
+  fontSize?: number;
   backgroundColor?: string;
   buttonColor?: string;
   buttonTextColor?: string;
@@ -35,7 +36,8 @@ export type CustomDialogProps = {
   buttonTextCancelColor?: string;
   buttonConfirmColor?: string;
   buttonTextConfirmColor?: string;
-  borderColor?: string,
+  borderColor?: string;
+  fontSize?: number;
 };
 
 export type CustomDialogInputProps = {
@@ -60,5 +62,6 @@ export type CustomDialogInputProps = {
   buttonConfirmColor?: string;
   buttonTextConfirmColor?: string;
   children: ReactNode;
-  borderColor?: string,
+  borderColor?: string;
+  fontSize?: number;
 };

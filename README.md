@@ -56,6 +56,7 @@ import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
     message: string | ReactNode;
     messageColor?: string;
     actionText?: string;
+    fontSize?: number;
     backgroundColor?: string;
     buttonColor?: string;
     buttonTextColor?: string;
@@ -82,6 +83,8 @@ import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
     buttonTextCancelColor?: string;
     buttonConfirmColor?: string;
     buttonTextConfirmColor?: string;
+    borderColor?: string;
+    fontSize?: number;
 </pre>
 <hr>
 
@@ -108,6 +111,8 @@ import { ReactNativeAlert } from "@bayudev/react-native-modal-dialog";
     buttonConfirmColor?: string;
     buttonTextConfirmColor?: string;
     children: ReactNode;
+    borderColor?: string;
+  fontSize?: number;
 </pre>
 <hr>
 <h2 style="color:darkgreen;">Code for Alert Modal</h2>
